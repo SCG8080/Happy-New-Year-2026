@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-color: #050505;
+  --text-primary: #ffffff;
+  --font-heading: 'Playfair Display', serif;
+  --font-body: 'Outfit', sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-scg-black text-white font-sans antialiased overflow-x-hidden min-h-screen selection:bg-scg-gold selection:text-black;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-serif;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply px-8 py-4 bg-transparent border border-scg-gold text-scg-gold font-sans uppercase tracking-[0.2em] transition-all duration-300 hover:bg-scg-gold hover:text-black active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed;
+
+    &:hover {
+      box-shadow: 0 0 30px rgba(212, 175, 55, 0.4);
+    }
+  }
+
+  .glass-card {
+    @apply bg-scg-glass backdrop-blur-md border border-white/10 shadow-2xl;
+  }
+
+  .text-gradient-gold {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-white via-scg-gold-light to-scg-gold;
+  }
+}
+
+/* Custom Utilities that are tricky in Tailwind */
+.text-stroke {
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.1);
+}
+
+.perspective-1000 {
+  perspective: 1000px;
+}
